@@ -32,8 +32,6 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-users = {}
-
 
 @app.route('/')  # Главная страница
 def home():
@@ -52,7 +50,7 @@ def register():
         email = request.form.get('email')
         password = request.form.get('password')
         password_confirm = request.form.get('password_confirm')
-
+        print(username)
         # Валидация данных
         if username and email:
             if not email or '@' not in email:
@@ -67,9 +65,10 @@ def register():
                 flash('Пароли не совпадают', 'error')
                 return redirect(url_for('register'))
 
-            if email in [user.email for user in users] or username in [user.username for user in User.query.all()]:
-                flash('Пользователь с таким login/email уже существует', 'error')
-                return redirect(url_for('register'))
+            #if (email in [user.email for user in User.query.all()] or
+            #        username in [user.username for user in User.query.all()]):
+            #    flash('Пользователь с таким login/email уже существует', 'error')
+            #    return redirect(url_for('register'))
 
             try:
                 new_user = User(
@@ -88,13 +87,6 @@ def register():
             flash('Регистрация прошла успешно!', 'success')
 
             return redirect(url_for('home'))
-
-        if (email in [user.email for user in users] or
-                username in [user.username for user in User.query.all()]):
-            user = User.query.filter_by(username=username).first()
-            if user.check_password(password):
-                flash('Вы успешно вошли!', 'success')
-                return redirect(url_for('home'))
 
         return redirect(url_for('home'))
 
