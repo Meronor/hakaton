@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="img/logo.png" width="150">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="150">
         </div>
         <nav>
             <ul>
@@ -34,33 +34,33 @@
 
     <section class="news-section">
         <h2 style="display: flex; align-items: center; gap: 10px;">
-            <img src="SVO/img/logo.png" width="15" alt="Логотип">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="15" alt="Логотип">
             Последние новости
         </h2>
         <div class="masonry-grid">
             <div class="masonry-item">
-                <img src="SVO/img/news1.jpg" alt="Новость 1">
+                <img src="{{ url_for('static', filename='img/news1.jpg') }}" alt="Новость 1">
                 <div class="news-overlay">
                     <div class="news-text">Мероприятия к 80-летию Победы</div>
                     <div class="news-date">12 мая 2023</div>
                 </div>
             </div>
             <div class="masonry-item tall">
-                <img src="SVO/img/news2.jpg" alt="Новость 2">
+                <img src="{{ url_for('static', filename='img/news2.jpg') }}" alt="Новость 2">
                 <div class="news-overlay">
                     <div class="news-text">В Дагестане проводят мероприятия к 80-летию Великой Победы</div>
                     <div class="news-date">15 мая 2023</div>
                 </div>
             </div>
             <div class="masonry-item wide">
-                <img src="SVO/img/news3.jpg" alt="Новость 3">
+                <img src="{{ url_for('static', filename='img/news3.jpg') }}" alt="Новость 3">
                 <div class="news-overlay">
                     <div class="news-text">Участникам СВО из НАО увеличена сумма выплаты за ранение</div>
                     <div class="news-date">18 мая 2023</div>
                 </div>
             </div>
             <div class="masonry-item win">
-                <img src="SVO/img/news4.jpg" alt="Новость 4">
+                <img src="{{ url_for('static', filename='img/news4.jpg') }}" alt="Новость 4">
                 <div class="news-overlay">
                     <div class="news-text">Отмена транспортного налога для участников СВО</div>
                     <div class="news-date">20 мая 2023</div>

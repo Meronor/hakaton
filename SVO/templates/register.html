@@ -10,7 +10,7 @@
     <!-- Навигация -->
     <header>
         <div class="logo">
-            <img src="SVO/img/logo.png" width="150" alt="Логотип">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="150" alt="Логотип">
         </div>
         <nav>
             <ul>
@@ -19,7 +19,7 @@
                 <li><a href="/naviga">Навигация</a></li>
                 <li><a href="#">Новости</a></li>
                 <li><a href="#">Искусство</a></li>
-                <li><a href="/pomosh">Вход/регистрация</a></li>
+                <li><a href="/register">Вход/регистрация</a></li>
             </ul>
         </nav>
     </header>
@@ -30,7 +30,7 @@
             <h1>Добро пожаловать!</h1>
 
             <!-- Форма входа -->
-            <form id="login-form" class="auth-form" action="login.php" method="POST">
+            <form id="login-form" class="auth-form" action="{{ url_for('register') }}" method="POST">
                 <div class="form-group">
                     <label for="login-email">Логин/почта</label>
                     <input type="text" id="login-email" name="email" required>
@@ -50,7 +50,7 @@
             </form>
 
             <!-- Форма регистрации (изначально скрыта) -->
-            <form id="register-form" class="auth-form" style="display: none;" action="register.php" method="POST">
+            <form id="register-form" class="auth-form" style="display: none;" action="{{ url_for('register') }}" method="POST">
                 <div class="form-group">
                     <label for="reg-username">Логин</label>
                     <input type="text" id="reg-username" name="username" required>
@@ -87,8 +87,8 @@
             <div class="footer-columns">
                 <div class="footer-column">
                     <h3>Контакты</h3>
-                    <p>Телефон: +7 (123) 456-78-90</p>
-                    <p>Email: info@example.com</p>
+                    <p>Телефон: </p>
+                    <p>Email: </p>
                 </div>
 
                 <div class="footer-column">
