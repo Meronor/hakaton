@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from SVO.instance.set import set_user
+from SVO.instance.get import get_password
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
@@ -45,6 +46,14 @@ def register():
             else:
                 print('error')
                 flash('Пользователь с таким login/email уже существует', 'error')
+                return redirect(url_for('register'))
+        else:
+            if  password == get_password(email):
+                flash('Авторизация прошла успешно!', 'success')
+                return redirect(url_for('home'))
+            else:
+                print(password, get_password(email))
+                flash('Неверный логин/пароль', 'error')
                 return redirect(url_for('register'))
 
     return render_template('register.html')
