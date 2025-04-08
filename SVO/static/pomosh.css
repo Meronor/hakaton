@@ -1,0 +1,222 @@
+    * {
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        color: #333;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+    }
+
+    .logo img {
+        height: 50px;
+        width: auto;
+        filter: none;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 30px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #ffcc00;
+    }
+
+    .main-content {
+        flex: 1;
+        padding-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-container {
+        max-width: 500px;
+        width: 100%;
+        margin: 30px auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding: 40px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #0066cc;
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #555;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+        border-color: #0066cc;
+        outline: none;
+    }
+
+    .auth-button {
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+        text-transform: uppercase;
+    }
+
+    .auth-button:hover {
+        background-color: #0055aa;
+    }
+
+    .auth-switch {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .auth-switch a {
+        color: #0066cc;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .auth-switch a:hover {
+        text-decoration: underline;
+    }
+
+    .error-message {
+        color: #ff3333;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .success-message {
+        color: #009933;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    /* Подвал на всю ширину */
+    footer {
+        background-color: #3E4B82;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-columns {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-bottom: 30px;
+    }
+
+    .footer-column {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .footer-column h3 {
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .support-text {
+        font-style: italic;
+        opacity: 0.8;
+    }
+
+    @media (max-width: 900px) {
+        nav ul {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        header {
+            flex-direction: column;
+            padding: 15px;
+        }
+
+        .main-content {
+            padding-top: 150px;
+        }
+
+        .footer-columns {
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+    }
