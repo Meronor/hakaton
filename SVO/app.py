@@ -14,9 +14,10 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
 
-    first_name = db.Column(db.String(50))
-    last_name = db.Column(db.String(50))
-    last_login = db.Column(db.DateTime)
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.set_password(password)  # Хешируем пароль
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -24,53 +25,80 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def __repr__(self):
+        return f'<User {self.username}>'
+
+
 with app.app_context():
     db.create_all()
 
 users = {}
 
+
 @app.route('/')  # Главная страница
 def home():
     return render_template('index.html')
+
 
 @app.route('/naviga')  # Главная страница
 def naviga():
     return render_template('naviga.html')
 
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        username = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
         password_confirm = request.form.get('password_confirm')
+        print(username, password, email, password_confirm)
 
         # Валидация данных
-        if not email or '@' not in email:
-            flash('Пожалуйста, введите корректный email', 'error')
-            return redirect(url_for('register'))
+        if username and email:
+            if not email or '@' not in email:
+                flash('Пожалуйста, введите корректный email', 'error')
+                return redirect(url_for('register'))
 
-        if not password or len(password) < 8:
-            flash('Пароль должен содержать минимум 8 символов', 'error')
-            return redirect(url_for('register'))
+            if not password or len(password) < 8:
+                flash('Пароль должен содержать минимум 8 символов', 'error')
+                return redirect(url_for('register'))
 
-        if password != password_confirm:
-            flash('Пароли не совпадают', 'error')
-            return redirect(url_for('register'))
+            if password != password_confirm:
+                flash('Пароли не совпадают', 'error')
+                return redirect(url_for('register'))
 
-        if email in users:
-            flash('Пользователь с таким email уже существует', 'error')
-            return redirect(url_for('register'))
+            if email in users:
+                flash('Пользователь с таким email уже существует', 'error')
+                return redirect(url_for('register'))
 
-        # Хеширование пароля и сохранение пользователя
-        users[email] = {
-            'password': generate_password_hash(password),
-            'email': email
-        }
+            try:
+                new_user = User(
+                    username=username,
+                    email=email,
+                    password=generate_password_hash(password),
+                )
 
-        flash('Регистрация прошла успешно!', 'success')
+                db.session.add(new_user)
+                db.session.commit()
+
+            except Exception as e:
+                db.session.rollback()
+                return {'error': f'Ошибка при регистрации: {str(e)}'}, 500
+
+            flash('Регистрация прошла успешно!', 'success')
+
+            return redirect(url_for('home'))
+
+        if (email in [user.email for user in users] or
+                username in [user.username for user in User.query.all()]):
+            flash('Вы успешно вошли!', 'success')
+            return redirect(url_for('home'))
+
         return redirect(url_for('home'))
 
     return render_template('register.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
