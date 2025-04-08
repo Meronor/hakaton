@@ -37,6 +37,10 @@ def home():
 def naviga():
     return render_template('naviga.html')
 
+@app.route('/doc')  # Главная страница
+def doc():
+    return render_template('doc.html')
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':

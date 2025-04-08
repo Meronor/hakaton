@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жизнь после СВО</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='doc.css') }}">
+</head>
+<body>
+    <!-- Навигационное меню -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="150" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Жизнь после СВО</a></li>
+                <li><a href="/doc">Документы</a></li>
+                <li><a href="/naviga">Навигация</a></li>
+                <li><a href="#">Искусство</a></li>
+                <li><a href="/register">Вход/регистрация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1>Жизнь после СВО</h1>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="task-list" id="taskList">
+            <!-- Задача 1 -->
+            <div class="task" id="task1">
+                <div class="task-header">
+                    <h2 class="task-title">Соберите все документы для получения выплат</h2>
+                    <span class="completed-label">Пройдено</span>
+                    <button class="complete-btn" onclick="completeTask('task1')">Пройдено</button>
+                </div>
+                <div class="task-content">
+                    <ol class="task-steps">
+                        <li>Паспорт - твой пропуск в гражданскую жизнь. Если утрачен - не беда, временное удостоверение станет листом между фронтом и домом.</li>
+                        <li>Справка о службе - как солдатский жетон, она расскажет твою историю без лишних слов.</li>
+                        <li>Реквизиты счета - река, по которой приглашает помощь.</li>
+                        <li>За каждым столом сидят люди, готовые протянуть руку. Ты прошел через огонь. Эти бумаги последний рубеж перед тишиной.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Задача 2 -->
+            <div class="task" id="task2">
+                <div class="task-header">
+                    <h2 class="task-title">Встретьтесь с давними друзьями</h2>
+                    <span class="completed-label">Пройдено</span>
+                    <button class="complete-btn" onclick="completeTask('task2')">Пройдено</button>
+                </div>
+                <div class="task-content">
+                    <ol class="task-steps">
+                        <li>Война разбросала вас - кто-то остался в родном городе, а кто-то нет.
+                            <ol type="a">
+                                <li>Первое сообщение - без громких слов. Простое: "Привет, как ты?" открывает двери.</li>
+                                <li>Встреча без пафоса - не пытайтесь "наверстать всё разом".</li>
+                                <li>Не бойся тишины - вам не нужно заполнять каждую минуту разговором.</li>
+                            </ol>
+                        </li>
+                        <li>Если страшно сделать первый шаг - вспомни, как вы поддерживали друг друга раньше. Ты не один. Они тоже обучали.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Задача 3 -->
+            <div class="task" id="task3">
+                <div class="task-header">
+                    <h2 class="task-title">Сходите на культурное мероприятие</h2>
+                    <span class="completed-label">Пройдено</span>
+                    <button class="complete-btn" onclick="completeTask('task3')">Пройдено</button>
+                </div>
+                <div class="task-content">
+                    <ol class="task-steps">
+                        <li>После грохота боле так странно слышать тишину конкретного зала. Культура — это мост между тем, что было, и тем, что будет.</li>
+                        <li>Как начать?
+                            <ol type="a">
+                                <li>Выберите простое — выставка местных художников, подписанный вечер.</li>
+                                <li>Идите с кем-то — друг разделит ваши впечатления.</li>
+                                <li>Позвольте себе чувствовать — если захочется уфимление выставки или эти новые дела.</li>
+                            </ol>
+                        </li>
+                        <li>Выберете то, что вам понравится.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Телефон: </p>
+                <p>Email: </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Адрес: </p>
+                <p>Часы работы: </p>
+            </div>
+        </div>
+
+        <div class="support-text">
+            орга
+        </div>
+    </footer>
+
+
+</body>
+</html>
