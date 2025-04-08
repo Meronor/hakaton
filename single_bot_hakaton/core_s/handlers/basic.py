@@ -1,6 +1,5 @@
 from aiogram.types import Message
 from aiogram import Bot
-from flask.cli import pass_script_info
 
 from single_bot_hakaton.core_s.keyboards.reply import reply_main, reply_create, reply_repair
 from single_bot_hakaton.core_s.keyboards.inline import inline_yn
@@ -37,13 +36,9 @@ async def get_info(message: Message, bot: Bot):
                             f"@{message.from_user.username}", reply_markup=inline_yn(message.from_user.username))
 
 
-    if message.text  in ['Другое', 'Поделиться своим искусством'] and f:
-        await bot.forward_message(
-            chat_id=6790408576,
-            from_chat_id=message.chat.id,
-            message_id=message.message_id
-        )
-    elif message.text == 'Творчество':
+    if f:
+        await bot.send_message(chat_id=-1002345734770, text=f'{message.text}\n@{message.from_user.username}')
+    elif message.text == 'Поделиться своим творчеством':
         f = True
     else:
         f = False
