@@ -1,7 +1,7 @@
 from aiogram.types import Message
 from aiogram import Bot
-from core_s.keyboards.reply import reply_main, reply_docs, reply_yn, reply_catch
-# from single_bot.core_s.keyboards.inline import inline_yn
+from single_bot_hakaton.core_s.keyboards.reply import reply_main, reply_docs, reply_yn, reply_catch
+from single_bot_hakaton.core_s.keyboards.inline import inline_yn
 
 f = False
 
@@ -28,7 +28,12 @@ async def get_info(message: Message, bot: Bot):
     elif message.text == 'Собрать пакет документов':
         await message.answer('Какие именно документы вас интересуют?', reply_markup=reply_catch())
     elif message.text == 'Другое':
-        await message.answer('Мы свяжемся с вами в ближайшем будущем!', reply_markup=reply_main())
+        if not message.from_user.username:
+            await message.answer("Вы скрыли username в настройках Telegram! Напишите нам ваш номер или user_id")
+        else:
+            await message.answer('Мы свяжемся с вами в ближайшем будущем!', reply_markup=reply_main())
+            await bot.send_message(chat_id=-1002345734770, text=f"Новая заявка на помощь "
+                            f"@{message.from_user.username}", reply_markup=inline_yn(message.from_user.username))
 
 
     if message.text  in ['Другое', 'Поделиться своим искусством'] and f:
