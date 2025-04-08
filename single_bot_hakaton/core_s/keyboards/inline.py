@@ -1,5 +1,4 @@
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
 from single_bot_hakaton.core_s.utils.CallbackData import accept
 
 

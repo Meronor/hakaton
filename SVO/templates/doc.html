@@ -14,7 +14,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/">Жизнь после СВО</a></li>
+                <li><a href="/">Главная</a></li>
                 <li><a href="/doc">Документы</a></li>
                 <li><a href="/naviga">Навигация</a></li>
                 <li><a href="#">Искусство</a></li>
@@ -109,10 +109,73 @@
         </div>
 
         <div class="support-text">
-            орга
+            Все СВОи
         </div>
     </footer>
+    <script>
+        // Инициализация задач
+        const tasks = document.querySelectorAll('.task');
+        const progressBar = document.getElementById('progressBar');
+        const totalTasks = tasks.length;
 
+        // Проверяем сохраненный прогресс в localStorage
+        function loadProgress() {
+            let completedTasks = 0;
+            let lastActiveTask = 0;
+
+            // Восстанавливаем состояние каждой задачи
+            tasks.forEach((task, index) => {
+                const taskId = task.id;
+                const isCompleted = localStorage.getItem(taskId) === 'completed';
+
+                if (isCompleted) {
+                    task.classList.add('completed');
+                    completedTasks++;
+                    lastActiveTask = index + 1;
+                }
+
+                // Показываем только активные и завершенные задачи
+                if (index <= lastActiveTask) {
+                    task.style.display = 'block';
+                    if (index === lastActiveTask && !isCompleted) {
+                        task.classList.add('active');
+                    }
+                } else {
+                    task.style.display = 'none';
+                }
+            });
+
+            // Обновляем прогресс-бар
+            updateProgress(completedTasks);
+        }
+
+        // Завершение задачи
+        function completeTask(taskId) {
+            const task = document.getElementById(taskId);
+            task.classList.add('completed');
+            localStorage.setItem(taskId, 'completed');
+
+            // Находим следующую задачу
+            const nextTask = task.nextElementSibling;
+            if (nextTask && nextTask.classList.contains('task')) {
+                nextTask.style.display = 'block';
+                nextTask.classList.add('active');
+            }
+
+            // Обновляем счетчик выполненных задач
+            const completedTasks = document.querySelectorAll('.task.completed').length;
+            updateProgress(completedTasks);
+        }
+
+        // Обновление прогресс-бара
+        function updateProgress(completed) {
+            const progress = (completed / totalTasks) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Инициализация при загрузке страницы
+        window.onload = loadProgress;
+    </script>
 
 </body>
 </html>

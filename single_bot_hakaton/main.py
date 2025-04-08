@@ -8,9 +8,9 @@ from core_s.utils.commands import set_commands
 from core_s.handlers.callback import acception
 from aiogram import F
 
-from single_bot_hakaton.core_s.utils.CallbackData import accept
+from core_s.utils.CallbackData import accept
 
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+#asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 
 async def start_bot(bot: Bot):

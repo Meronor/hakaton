@@ -1,8 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-from SVO.instance.set import set_user
-from SVO.instance.get import get_password
+from instance.set import set_user
+from instance.get import get_password
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
@@ -17,9 +15,11 @@ def home():
 def naviga():
     return render_template('naviga.html')
 
+
 @app.route('/doc')  # Главная страница
 def doc():
     return render_template('doc.html')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -34,7 +34,7 @@ def register():
                 flash('Пожалуйста, введите корректный email', 'error')
                 return redirect(url_for('register'))
 
-            if not password or len(password) < 8:
+            if not password or len(password) < 7:
                 flash('Пароль должен содержать минимум 8 символов', 'error')
                 return redirect(url_for('register'))
 
@@ -51,7 +51,7 @@ def register():
                 flash('Пользователь с таким login/email уже существует', 'error')
                 return redirect(url_for('register'))
         else:
-            if  password == get_password(email):
+            if password == get_password(email):
                 flash('Авторизация прошла успешно!', 'success')
                 return redirect(url_for('home'))
             else:
