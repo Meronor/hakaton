@@ -51,12 +51,12 @@ async def get_info(message: Message, bot: Bot):
 
     if f:
         f = False
-        await bot.send_message(chat_id=-1002345734770, text=f'{message.text}\n@{message.from_user.username}')
+        await bot.send_message(chat_id=-4770007267, text=f'{message.text}\n@{message.from_user.username}')
         await message.answer("Спасибо, мы обрабатываем ваш запрос! Скоро ваше творчество появится на сайте!")
-    elif message.text == 'Поделиться своим творчеством':
-        f = True
         await bot.send_sticker(chat_id=message.chat.id,
                                sticker="CAACAgIAAxkBAAIK82fzu-tM_sknVm6-M8BDIbyir8beAAIzbgACcAKhSzqBlL5pI8reNgQ")
+    elif message.text == 'Поделиться своим творчеством':
+        f = True
 
 
 async def get_delete(message: Message):
