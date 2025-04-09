@@ -23,6 +23,10 @@ def news():
 def life():
     return render_template('life.html')
 
+@app.route('/art')  # Главная страница
+def art():
+    return render_template('art.html')
+
 
 @app.route('/doc')  # Главная страница
 def doc():
