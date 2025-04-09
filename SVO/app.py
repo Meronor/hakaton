@@ -15,6 +15,10 @@ def home():
 def naviga():
     return render_template('naviga.html')
 
+@app.route('/news')  # Главная страница
+def news():
+    return render_template('news.html')
+
 @app.route('/life')  # Главная страница
 def life():
     return render_template('life.html')
