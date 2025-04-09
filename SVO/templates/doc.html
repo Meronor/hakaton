@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Жизнь после СВО</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='doc.css') }}">
+    <title>Документы после СВО</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='doc.css') }}">
 </head>
 <body>
     <!-- Навигационное меню -->
     <header>
         <div class="logo">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" width="150" alt="Логотип">
+            <a href="/">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" width="150" alt="Логотип">
+            </a>
         </div>
         <nav>
             <ul>
-                <li><a href="/">Главная</a></li>
+                <li><a href="/live">Жизнь после СВО</a></li>
                 <li><a href="/doc">Документы</a></li>
                 <li><a href="/naviga">Навигация</a></li>
                 <li><a href="#">Искусство</a></li>
@@ -23,72 +25,220 @@
         </nav>
     </header>
 
+    <!-- Основное содержимое -->
     <div class="main-content">
-        <h1>Жизнь после СВО</h1>
+        <div class="document-section">
+            <h1 class="document-title">Восстановление документов</h1>
 
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
+            <div class="document-buttons">
+                <button class="doc-button active" data-doc="passport">Паспорт</button>
+                <button class="doc-button" data-doc="military">Военный билет</button>
+                <button class="doc-button" data-doc="snils">СНИЛС и ИНН</button>
+                <button class="doc-button" data-doc="nothing">Нет вообще ничего</button>
+                <button class="doc-button" data-doc="license">Водительские права</button>
+            </div>
 
-        <div class="task-list" id="taskList">
-            <!-- Задача 1 -->
-            <div class="task" id="task1">
-                <div class="task-header">
-                    <h2 class="task-title">Соберите все документы для получения выплат</h2>
-                    <span class="completed-label">Пройдено</span>
-                    <button class="complete-btn" onclick="completeTask('task1')">Пройдено</button>
+            <!-- Информация для паспорта -->
+            <div id="passport-info" class="doc-info active">
+                <div class="info-section">
+                    <div class="info-title">Куда идти?</div>
+                    <div class="info-content">
+                        Через свою военную часть – если вы ещё в зоне СВО, командир поможет отправить рапорт.
+                    </div>
                 </div>
-                <div class="task-content">
-                    <ol class="task-steps">
-                        <li>Паспорт - твой пропуск в гражданскую жизнь. Если утрачен - не беда, временное удостоверение станет листом между фронтом и домом.</li>
-                        <li>Справка о службе - как солдатский жетон, она расскажет твою историю без лишних слов.</li>
-                        <li>Реквизиты счета - река, по которой приглашает помощь.</li>
-                        <li>За каждым столом сидят люди, готовые протянуть руку. Ты прошел через огонь. Эти бумаги последний рубеж перед тишиной.</li>
-                    </ol>
+
+                <div class="info-section">
+                    <div class="info-title">Что сказать?</div>
+                    <div class="info-content">
+                        <p>Подойдите к окну и чётко объясните:</p>
+                        <p>«Участвовал в СВО, военный билет потерял в ходе боевых действий. Нужно восстановить.»</p>
+                        <p>Вас должны принять без очереди – это прямое указание для военкоматов.</p>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Что взять с собой?</div>
+                    <div class="info-content">
+                        <ul class="info-list">
+                            <li>Паспорт (или временное удостоверение, если паспорта пока нет)</li>
+                            <li>Справку из части (если есть – ускорит процесс)</li>
+                            <li>Любые документы, где есть ваши ФИО и данные о службе (например, удостоверение ветерана)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Сроки восстановления:</div>
+                    <div class="info-content">
+                        <p>Обычно – 1–2 недели (пока делают дубликат).</p>
+                        <p>Если срочно – можно запросить временную справку прямо в день обращения.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Задача 2 -->
-            <div class="task" id="task2">
-                <div class="task-header">
-                    <h2 class="task-title">Встретьтесь с давними друзьями</h2>
-                    <span class="completed-label">Пройдено</span>
-                    <button class="complete-btn" onclick="completeTask('task2')">Пройдено</button>
+            <!-- Информация для военного билета -->
+            <div id="military-info" class="doc-info">
+                <div class="info-section">
+                    <div class="info-title">Куда идти?</div>
+                    <div class="info-content">
+                        В военкомат по месту жительства или через свою военную часть, если вы ещё в зоне СВО.
+                    </div>
                 </div>
-                <div class="task-content">
-                    <ol class="task-steps">
-                        <li>Война разбросала вас - кто-то остался в родном городе, а кто-то нет.
-                            <ol type="a">
-                                <li>Первое сообщение - без громких слов. Простое: "Привет, как ты?" открывает двери.</li>
-                                <li>Встреча без пафоса - не пытайтесь "наверстать всё разом".</li>
-                                <li>Не бойся тишины - вам не нужно заполнять каждую минуту разговором.</li>
-                            </ol>
-                        </li>
-                        <li>Если страшно сделать первый шаг - вспомни, как вы поддерживали друг друга раньше. Ты не один. Они тоже обучали.</li>
-                    </ol>
+
+                <div class="info-section">
+                    <div class="info-title">Что сказать?</div>
+                    <div class="info-content">
+                        <p>Сообщите, что участвовали в СВО и потеряли военный билет в ходе боевых действий.</p>
+                        <p>Вас обязаны принять без очереди согласно указанию для участников СВО.</p>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Что взять с собой?</div>
+                    <div class="info-content">
+                        <ul class="info-list">
+                            <li>Паспорт или временное удостоверение</li>
+                            <li>Справку из части (если имеется)</li>
+                            <li>Любые подтверждающие документы о службе</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Сроки восстановления:</div>
+                    <div class="info-content">
+                        <p>До 14 рабочих дней для изготовления дубликата.</p>
+                        <p>Временное удостоверение можно получить в день обращения.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Задача 3 -->
-            <div class="task" id="task3">
-                <div class="task-header">
-                    <h2 class="task-title">Сходите на культурное мероприятие</h2>
-                    <span class="completed-label">Пройдено</span>
-                    <button class="complete-btn" onclick="completeTask('task3')">Пройдено</button>
+            <!-- Информация для СНИЛС и ИНН -->
+            <div id="snils-info" class="doc-info">
+                <div class="info-section">
+                    <div class="info-title">Куда идти?</div>
+                    <div class="info-content">
+                        В отделение Пенсионного фонда (для СНИЛС) и в налоговую инспекцию (для ИНН).
+                    </div>
                 </div>
-                <div class="task-content">
-                    <ol class="task-steps">
-                        <li>После грохота боле так странно слышать тишину конкретного зала. Культура — это мост между тем, что было, и тем, что будет.</li>
-                        <li>Как начать?
-                            <ol type="a">
-                                <li>Выберите простое — выставка местных художников, подписанный вечер.</li>
-                                <li>Идите с кем-то — друг разделит ваши впечатления.</li>
-                                <li>Позвольте себе чувствовать — если захочется уфимление выставки или эти новые дела.</li>
-                            </ol>
-                        </li>
-                        <li>Выберете то, что вам понравится.</li>
-                    </ol>
+
+                <div class="info-section">
+                    <div class="info-title">Что сказать?</div>
+                    <div class="info-content">
+                        <p>Сообщите, что вы участник СВО и потеряли документы в ходе боевых действий.</p>
+                        <p>Попросите ускоренное восстановление документов.</p>
+                    </div>
                 </div>
+
+                <div class="info-section">
+                    <div class="info-title">Что взять с собой?</div>
+                    <div class="info-content">
+                        <ul class="info-list">
+                            <li>Паспорт или временное удостоверение</li>
+                            <li>Справку из военкомата или части</li>
+                            <li>Для ИНН - заявление (можно заполнить на месте)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Сроки восстановления:</div>
+                    <div class="info-content">
+                        <p>СНИЛС - до 5 рабочих дней</p>
+                        <p>ИНН - до 5 рабочих дней (можно получить сразу в электронном виде)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информация для случая "нет вообще ничего" -->
+            <div id="nothing-info" class="doc-info">
+                <div class="info-section">
+                    <div class="info-title">Что делать?</div>
+                    <div class="info-content">
+                        <p>1. Обратитесь в свою военную часть или военкомат для получения справки, подтверждающей личность.</p>
+                        <p>2. С этой справкой идите в паспортный стол для оформления временного удостоверения личности.</p>
+                        <p>3. После получения временного удостоверения можно восстанавливать остальные документы.</p>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Куда идти в первую очередь?</div>
+                    <div class="info-content">
+                        В военкомат или свою военную часть для подтверждения личности и получения справки.
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Что взять с собой?</div>
+                    <div class="info-content">
+                        <ul class="info-list">
+                            <li>Любые сохранившиеся документы (даже поврежденные)</li>
+                            <li>Фотографии (если есть)</li>
+                            <li>Контакты сослуживцев, которые могут подтвердить вашу личность</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Сроки восстановления:</div>
+                    <div class="info-content">
+                        <p>Временное удостоверение - в день обращения</p>
+                        <p>Паспорт - до 10 дней после подачи документов</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информация для водительских прав -->
+            <div id="license-info" class="doc-info">
+                <div class="info-section">
+                    <div class="info-title">Куда идти?</div>
+                    <div class="info-content">
+                        В отделение ГИБДД по месту жительства или временной регистрации.
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Что сказать?</div>
+                    <div class="info-content">
+                        <p>Сообщите, что вы участник СВО и потеряли права в ходе боевых действий.</p>
+                        <p>Попросите ускоренное восстановление документа.</p>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Что взять с собой?</div>
+                    <div class="info-content">
+                        <ul class="info-list">
+                            <li>Паспорт или временное удостоверение</li>
+                            <li>Медицинскую справку (можно получить в поликлинике по месту жительства)</li>
+                            <li>Фотографию 3×4 см (можно сделать в отделении ГИБДД)</li>
+                            <li>Квитанцию об оплате госпошлины (можно оплатить на месте через терминал)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Сроки восстановления:</div>
+                    <div class="info-content">
+                        <p>Обычно - 1 рабочий день</p>
+                        <p>Временное разрешение можно получить сразу</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок с ботом -->
+            <div class="bot-section">
+                <div class="bot-title">Нужна помощь с документами?</div>
+                <p>Наш бот поможет в этом!</p>
+                <p>Перейдя по ссылке → Выбери цель → Получи консультацию</p>
+                <a href="https://t.me/your_bot" class="bot-button">Получить информацию!</a>
+            </div>
+
+            <!-- Дополнительная информация -->
+            <div class="additional-info">
+                <h3>Дополнительная информация</h3>
+                <p>Заметки в Вагнерах. Заметки наемника</p>
+                <p>Информация о документах из Гос.Думы</p>
             </div>
         </div>
     </div>
@@ -97,85 +247,47 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Контакты</h3>
-                <p>Телефон: </p>
-                <p>Email: </p>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Email: info@example.com</p>
             </div>
 
             <div class="footer-section">
                 <h3>Контакты</h3>
-                <p>Адрес: </p>
-                <p>Часы работы: </p>
+                <p>Адрес: г. Москва, ул. Примерная, 123</p>
+                <p>Часы работы: 9:00 - 18:00</p>
             </div>
         </div>
 
         <div class="support-text">
-            Все СВОи
+            Сделано при поддержке [Название организации]
         </div>
     </footer>
+
     <script>
-        // Инициализация задач
-        const tasks = document.querySelectorAll('.task');
-        const progressBar = document.getElementById('progressBar');
-        const totalTasks = tasks.length;
+        document.addEventListener('DOMContentLoaded', function() {
+            const docButtons = document.querySelectorAll('.doc-button');
+            const docInfos = document.querySelectorAll('.doc-info');
 
-        // Проверяем сохраненный прогресс в localStorage
-        function loadProgress() {
-            let completedTasks = 0;
-            let lastActiveTask = 0;
+            // Обработка кликов по кнопкам документов
+            docButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем активный класс у всех кнопок и информационных блоков
+                    docButtons.forEach(btn => btn.classList.remove('active'));
+                    docInfos.forEach(info => info.classList.remove('active'));
 
-            // Восстанавливаем состояние каждой задачи
-            tasks.forEach((task, index) => {
-                const taskId = task.id;
-                const isCompleted = localStorage.getItem(taskId) === 'completed';
+                    // Добавляем активный класс к текущей кнопке
+                    this.classList.add('active');
 
-                if (isCompleted) {
-                    task.classList.add('completed');
-                    completedTasks++;
-                    lastActiveTask = index + 1;
-                }
-
-                // Показываем только активные и завершенные задачи
-                if (index <= lastActiveTask) {
-                    task.style.display = 'block';
-                    if (index === lastActiveTask && !isCompleted) {
-                        task.classList.add('active');
-                    }
-                } else {
-                    task.style.display = 'none';
-                }
+                    // Показываем соответствующий информационный блок
+                    const docType = this.getAttribute('data-doc');
+                    document.getElementById(`${docType}-info`).classList.add('active');
+                });
             });
 
-            // Обновляем прогресс-бар
-            updateProgress(completedTasks);
-        }
-
-        // Завершение задачи
-        function completeTask(taskId) {
-            const task = document.getElementById(taskId);
-            task.classList.add('completed');
-            localStorage.setItem(taskId, 'completed');
-
-            // Находим следующую задачу
-            const nextTask = task.nextElementSibling;
-            if (nextTask && nextTask.classList.contains('task')) {
-                nextTask.style.display = 'block';
-                nextTask.classList.add('active');
-            }
-
-            // Обновляем счетчик выполненных задач
-            const completedTasks = document.querySelectorAll('.task.completed').length;
-            updateProgress(completedTasks);
-        }
-
-        // Обновление прогресс-бара
-        function updateProgress(completed) {
-            const progress = (completed / totalTasks) * 100;
-            progressBar.style.width = `${progress}%`;
-        }
-
-        // Инициализация при загрузке страницы
-        window.onload = loadProgress;
+            // Инициализация - показываем первый документ (паспорт) по умолчанию
+            document.querySelector('.doc-button[data-doc="passport"]').classList.add('active');
+            document.getElementById('passport-info').classList.add('active');
+        });
     </script>
-
 </body>
 </html>

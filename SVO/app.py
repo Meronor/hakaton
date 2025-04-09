@@ -15,10 +15,14 @@ def home():
 def naviga():
     return render_template('naviga.html')
 
+@app.route('/life')  # Главная страница
+def life():
+    return render_template('life.html')
+
 
 @app.route('/doc')  # Главная страница
 def doc():
-    return render_template('doc.html')
+    return render_template('life.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
