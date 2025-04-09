@@ -22,7 +22,7 @@ def life():
 
 @app.route('/doc')  # Главная страница
 def doc():
-    return render_template('life.html')
+    return render_template('doc.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
