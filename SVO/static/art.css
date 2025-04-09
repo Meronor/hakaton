@@ -1,0 +1,304 @@
+/* Основные стили */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        color: #333;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Верхняя картинка на самый верх */
+    .top-hero-image {
+        width: 100%;
+        height: 60vh;
+        min-height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .top-hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Текст поверх изображения */
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* Шапка сайта поверх изображения */
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+    }
+
+    .logo img {
+        height: 50px;
+        width: auto;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 30px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #ffcc00;
+    }
+
+    .main-content {
+        flex: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    /* Стили для миниатюр */
+    .section-title {
+        color: #000;
+        font-size: 28px;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #3E4B82;
+        text-align: center;
+    }
+
+    .thumbnails-container {
+        padding: 0 20px;
+    }
+
+    .thumbnail-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .thumbnail-item {
+        width: calc(25% - 15px);
+        min-width: 200px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .thumbnail-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .thumbnail-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .thumbnail-title {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Модальное окно */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        z-index: 1000;
+        overflow: auto;
+        padding-top: 100px;
+    }
+
+    .modal-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .modal-img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+    }
+
+    .modal-text {
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        color: white;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /* Автор и дата */
+    .article-meta {
+        margin: 40px 20px 0;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        font-weight: bold;
+    }
+
+    .article-date {
+        color: #666;
+        font-size: 14px;
+    }
+
+    /* Поддержка */
+    .support {
+        text-align: center;
+        margin: 40px 20px;
+        font-style: italic;
+        color: #666;
+    }
+
+    /* Подвал */
+    footer {
+        background-color: #3E4B82;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        flex: 1;
+        padding: 0 10px;
+    }
+
+    .footer-section h3 {
+        border-bottom: 1px solid #777;
+        padding-bottom: 10px;
+    }
+
+    .support-text {
+        font-style: italic;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 1024px) {
+        .thumbnail-item {
+            width: calc(33.333% - 15px);
+        }
+
+        .top-hero-image {
+            height: 50vh;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .top-hero-image {
+            height: 40vh;
+            min-height: 300px;
+        }
+
+        .hero-title {
+            font-size: 32px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+        }
+
+        nav ul {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .thumbnail-item {
+            width: calc(50% - 15px);
+        }
+
+        .footer-content {
+            flex-direction: column;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .thumbnail-item {
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: 28px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+        }
+
+        .top-hero-image {
+            height: 35vh;
+            min-height: 250px;
+        }
+    }

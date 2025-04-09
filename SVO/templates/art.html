@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Искусство фронта</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='art.css') }}">
+</head>
+<body>
+    <!-- Верхняя картинка на самый верх -->
+    <div class="top-hero-image">
+        <img src="{{ url_for('static', filename='img/art0.jpg') }}" alt="Основное изображение">
+        <!-- Текст поверх изображения -->
+        <div class="hero-text">
+            <h1 class="hero-title">Искусство от соотечественников</h1>
+            
+        </div>
+        <!-- Навигационное меню поверх изображения -->
+        <header>
+            <div class="/">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" width="15" alt="Логотип">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/live">Жизнь после СВО</a></li>
+                    <li><a href="/doc">Документы</a></li>
+                    <li><a href="/newsboard">Новости</a></li>
+                    <li><a href="/naviga">Навигация</a></li>
+                    <li><a href="/art">Искусство</a></li>
+                    <li><a href="/register">Вход/регистрация</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    
+    <!-- Основное содержимое -->
+    <div class="main-content">
+        <!-- Раздел с миниатюрами -->
+        <div class="thumbnails-container">
+            <h2 class="section-title">Лучшие картины в фронте</h2>
+            
+            <div class="thumbnail-row">
+                <!-- Миниатюра 1 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art1.jpg') }}', 'Специальность со столами')">
+                    <img src="{{ url_for('static', filename='img/art1.jpg') }}" alt="Специальность со столами">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 2 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art2.jpg') }}', 'Называем картины в фронте')">
+                    <img src="{{ url_for('static', filename='img/art2.jpg') }}" alt="Называем картины в фронте">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 3 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art3.jpg') }}', 'Сделать при поддержке баллона')">
+                    <img src="{{ url_for('static', filename='img/art3.jpg') }}" alt="Сделать при поддержке баллона">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 4 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art4.jpg') }}', 'Еще одна картина')">
+                    <img src="{{ url_for('static', filename='img/art4.jpg') }}" alt="Еще одна картина">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <!-- Раздел с миниатюрами -->
+        <div class="thumbnails-container">
+            <h2 class="section-title">Ознакомьтесь со стихами</h2>
+            
+            <div class="thumbnail-row">
+                <!-- Миниатюра 1 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art1.jpg') }}', 'Специальность со столами')">
+                    <img src="{{ url_for('static', filename='img/art5.jpg') }}" alt="Специальность со столами">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 2 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art2.jpg') }}', 'Называем картины в фронте')">
+                    <img src="{{ url_for('static', filename='img/art6.jpg') }}" alt="Называем картины в фронте">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 3 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art3.jpg') }}', 'Сделать при поддержке баллона')">
+                    <img src="{{ url_for('static', filename='img/art7.jpg') }}" alt="Сделать при поддержке баллона">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 4 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art4.jpg') }}', 'Еще одна картина')">
+                    <img src="{{ url_for('static', filename='img/art8.jpg') }}" alt="Еще одна картина">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <!-- Раздел с миниатюрами -->
+        <div class="thumbnails-container">
+            <h2 class="section-title">Недавние картины с фронта</h2>
+            
+            <div class="thumbnail-row">
+                <!-- Миниатюра 1 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art1.jpg') }}', 'Специальность со столами')">
+                    <img src="{{ url_for('static', filename='img/art1.jpg') }}" alt="Специальность со столами">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 2 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art2.jpg') }}', 'Называем картины в фронте')">
+                    <img src="{{ url_for('static', filename='img/art2.jpg') }}" alt="Называем картины в фронте">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 3 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art3.jpg') }}', 'Сделать при поддержке баллона')">
+                    <img src="{{ url_for('static', filename='img/art3.jpg') }}" alt="Сделать при поддержке баллона">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+                
+                <!-- Миниатюра 4 -->
+                <div class="thumbnail-item" onclick="openModal('{{ url_for('static', filename='img/art4.jpg') }}', 'Еще одна картина')">
+                    <img src="{{ url_for('static', filename='img/art4.jpg') }}" alt="Еще одна картина">
+                    <div class="thumbnail-title">Возвращение</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="article-meta">
+        </div>
+        
+        <div class="support">
+        </div>
+    </div>
+    
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Email: info@example.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Адрес: г. Москва, ул. Примерная, 123</p>
+                <p>Часы работы: 9:00 - 18:00</p>
+            </div>
+        </div>
+        
+        <div class="support-text">
+            Сделано при поддержке Лидеры России-Москва
+        </div>
+    </footer>
+    
+    <!-- Модальное окно -->
+    <div id="artModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-img" src="" alt="">
+            <div class="modal-text" id="modalText"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Функция для открытия модального окна
+        function openModal(imgSrc, title) {
+            document.getElementById('modalImage').src = imgSrc;
+            document.getElementById('modalText').innerHTML = `
+                <h3>${title}</h3>
+                <p>Новый Май</p>
+                <p>Застыл в строю пехотный батальон.</p>
+                <p>Плечом к плечу стоит расчёт парадный.</p>
+                <p>Сверкает солнце в золоте погон</p>
+                <p>И тишина на улицах нарядных...</p>
+                <p>Сегодня будет праздничный салют,</p>
+                <p>Концерты будут, радость и улыбки...</p>
+                <p>А где-то под Донецком "грады" бьют,</p>
+                <p>И резкий грохот выстрелов на вскидку...</p>
+                <p>Там, далеко, опять гремит война...</p>
+                <p>Там вновь поля изранены траншеей...</p>
+                <p>Там ввысь вонзались раньше тополя,</p>
+                <p>А нынче рвут осколки чьи-то шеи...</p>
+                <p>Отсюда кажется всё мирно на Земле,</p>
+                <p>Что нету больше выстрелов и взрывов,</p>
+                <p>Но выпало вчерашней детворе</p>
+                <p>Идти в атаку под Саур-Могилой...</p>
+                <p>Аэропорт Донецка, Иловайск,</p>
+                <p>Дебальцево, Артёмовск, Мариуполь...</p>
+                <p>Под свист снарядов ближе новый Май...</p>
+                <p>Героев новых, Родина, встречай!</p>
+                <p>В подарок жизнь достанется кому-то...</p>
+            `;
+            document.getElementById('artModal').style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        
+        // Функция для закрытия модального окна
+        function closeModal() {
+            document.getElementById('artModal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // Закрытие при клике вне изображения
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('artModal')) {
+                closeModal();
+            }
+        }
+        
+        // Закрытие при нажатии ESC
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>
