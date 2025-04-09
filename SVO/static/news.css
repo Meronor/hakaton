@@ -1,0 +1,191 @@
+/* Основные стили */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* Шапка сайта */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+    }
+
+    .logo img {
+        height: 50px;
+        width: auto;
+        filter: none;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 30px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #ffcc00;
+    }
+
+    /* Герой-секция с изображением */
+    .hero-single {
+        height: 50vh;
+        min-height: 400px;
+        background: center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        background-color: #333; /* Фолбэк цвет если изображение не загрузится */
+        background-attachment: fixed;
+    }
+
+    .hero-single::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4); /* Затемнение для лучшей читаемости текста */
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        padding: 0 5% 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-family: 'Yeseva One', serif;
+        font-size: 3rem;
+        margin: 0 0 15px 0;
+    }
+
+    .hero-meta {
+        display: flex;
+        gap: 20px;
+        font-size: 0.9rem;
+        color: #ddd;
+    }
+
+    /* Контент новости */
+    .news-content {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 5%;
+    }
+
+    .news-section {
+        margin-bottom: 40px;
+    }
+
+    .news-section h2 {
+        font-size: 1.8rem;
+        color: #3E4B82;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #3E4B82;
+        padding-bottom: 10px;
+    }
+
+    .news-section p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    /* Футер */
+    footer {
+        background-color: #3E4B82;
+        color: white;
+        padding: 40px 5%;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 250px;
+        padding: 0 10px 20px;
+        text-align: left;
+    }
+
+    .footer-section h3 {
+        border-bottom: 1px solid #777;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .support-text {
+        font-style: italic;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .hero-single {
+            height: 40vh;
+            min-height: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+
+        .hero-meta {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .news-content {
+            margin: 30px auto;
+        }
+
+        .news-section h2 {
+            font-size: 1.5rem;
+        }
+    }
